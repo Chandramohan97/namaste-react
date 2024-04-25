@@ -1,0 +1,34 @@
+const heading =document.createElemenet("h1") -> creates an h1 element.
+
+heading.innerHTML = "Hello world from Javascript".
+const root = document.getElementById('root').
+root.appendChild(heading). -> will put heading inside div
+
+
+Ways to inject react into our project : 
+
+1. CDN - Content Delivery Network( do research on this : what and why we use this). 
+2. So there are two links regarding this. First one is this : https://unpkg.com/react@18/umd/react.development.js. UMD - Universal Module Definition which allows the a javascript module to be used in various environment. The above link comprises of 
+just basic development code.
+
+3. 2nd is : https://unpkg.com/react-dom@18/umd/react-dom.development.js : Bridges the DOM and React core code.
+
+4. What is cross origing in the cdn links - homework.
+
+5. Why eveyrthing i.e. script inside body tag?
+
+6. What is root in react - So root is a DOM entry point for a React code. It is through the root element, react is 
+able to render our application. 
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(heading)
+
+7. How to create an element in React : React.createElement('h1',{object which contains attributes}, 'Hello
+World from React').
+
+8. What is heading ? It is a javascript object( not an html tag h1 as defined above) which has the following properties : 
+type = h1. 
+props : {id : heading} 
+children : 'Hello world from React'
+
+9. root.render - it converts the javascript object into an html tag and appends the tag inside of root.
