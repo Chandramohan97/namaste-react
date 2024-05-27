@@ -32,3 +32,5 @@ props : {id : heading}
 children : 'Hello world from React'
 
 9. root.render - it converts the javascript object into an html tag and appends the tag inside of root.
+
+10.
