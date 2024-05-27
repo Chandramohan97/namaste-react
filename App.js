@@ -2,24 +2,31 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 // console.log(heading);
-const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const reactElement = <h1>Hello React Element</h1>
-const TitleComponent = () => {
-    return <h1 className='head' tabIndex='5'>
-    Namaste React using jsx
-</h1>
-
+const Header = () =>{
+    return(
+        <div className='header'>
+            <div className='logo-container'>
+                <img className='logo' src='https://img.freepik.com/free-vector/food-shopping-logo-template-design_460848-10299.jpg' alt="Food Logo" />
+            </div>
+            <div className='nav-item'>
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li>Cart</li>
+                </ul>
+            </div>
+        </div>
+    )
 }
-    
 
-const HeadingComponent = () => (
-    <div className='heading'>
-        {TitleComponent()}
-       <h1>Namaste React Functional Component</h1> 
-    </div>
-)
-root.render(<HeadingComponent />)
+const AppLayout = () =>{
+    return <div className='app'><Header /></div>
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Header />)
+
 // root.render(reactElement)
 
 
