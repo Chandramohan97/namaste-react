@@ -1,4 +1,4 @@
-const resList = [{
+let resList = [{
     "info": {
     "id": "16865",
     "name": "Pizza Hut",
