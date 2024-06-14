@@ -1,17 +1,31 @@
 import { resList } from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
-
+import { useState,useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-    
-    // console.log(resList);
-    const [listOfRes,setListOfRes] = useState(resList);
 
+    const [listOfRes,setListOfRes] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    },[])
+    
+    const fetchData = async () =>{
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.637278&lng=77.2259488&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+        const json = await data.json();
+        // console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRes(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);    
+    }
+    
     const buttonOnClick = () =>{
         const tempList = listOfRes.filter( (listOfRes) => listOfRes.info.avgRating > 4.2);
         // console.log(tempList);
         setListOfRes(tempList);
+    }
+    
+    if( listOfRes.length === 0 ){
+        return <Shimmer />
     }
     
     return(
