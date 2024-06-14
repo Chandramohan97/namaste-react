@@ -1,7 +1,7 @@
 import { resList } from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 import { useState,useEffect } from "react";
-import Shimmer from "./Shimmer";
+import Shimmer from "./Shimmer"
 
 const Body = () => {
 
@@ -24,11 +24,8 @@ const Body = () => {
         setListOfRes(tempList);
     }
     
-    if( listOfRes.length === 0 ){
-        return <Shimmer />
-    }
-    
-    return(
+    return listOfRes.length === 0 ? <Shimmer /> :
+    (
         <div className="body">
             <button onClick={buttonOnClick}>Top Rated Restaurant</button>
             <div className="res-container">
